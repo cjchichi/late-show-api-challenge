@@ -1,0 +1,46 @@
+{
+  "routes": [
+    {
+      "path": "/register",
+      "method": "POST",
+      "auth_required": false,
+      "description": "Register a user"
+    },
+    {
+      "path": "/login",
+      "method": "POST",
+      "auth_required": false,
+      "description": "Log in + return JWT"
+    },
+    {
+      "path": "/episodes",
+      "method": "GET",
+      "auth_required": false,
+      "description": "List episodes"
+    },
+    {
+      "path": "/episodes/<int:id>",
+      "method": "GET",
+      "auth_required": false,
+      "description": "Get episode + appearances"
+    },
+    {
+      "path": "/episodes/<int:id>",
+      "method": "DELETE",
+      "auth_required": true,
+      "description": "Delete episode + appearances"
+    },
+    {
+      "path": "/guests",
+      "method": "GET",
+      "auth_required": false,
+      "description": "List guests"
+    },
+    {
+      "path": "/appearances",
+      "method": "POST",
+      "auth_required": true,
+      "description": "Create appearance"
+    }
+  ]
+}

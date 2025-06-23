@@ -1,0 +1,1 @@
+SQLALCHEMY_DATABASE_URI = "postgresql://cynthia:cynthiachichi@localhost:5432/late_show_db"

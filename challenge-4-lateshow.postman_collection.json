@@ -1,46 +1,39 @@
 {
-  "routes": [
+  "info": {
+    "name": "Late Show API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
     {
-      "path": "/register",
-      "method": "POST",
-      "auth_required": false,
-      "description": "Register a user"
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:5000/register", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["register"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"password\"\n}"
+        }
+      }
     },
     {
-      "path": "/login",
-      "method": "POST",
-      "auth_required": false,
-      "description": "Log in + return JWT"
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:5000/login", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["login"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"password\"\n}"
+        }
+      }
     },
     {
-      "path": "/episodes",
-      "method": "GET",
-      "auth_required": false,
-      "description": "List episodes"
-    },
-    {
-      "path": "/episodes/<int:id>",
-      "method": "GET",
-      "auth_required": false,
-      "description": "Get episode + appearances"
-    },
-    {
-      "path": "/episodes/<int:id>",
-      "method": "DELETE",
-      "auth_required": true,
-      "description": "Delete episode + appearances"
-    },
-    {
-      "path": "/guests",
-      "method": "GET",
-      "auth_required": false,
-      "description": "List guests"
-    },
-    {
-      "path": "/appearances",
-      "method": "POST",
-      "auth_required": true,
-      "description": "Create appearance"
+      "name": "List Episodes",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:5000/episodes", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["episodes"] }
+      }
     }
   ]
 }

@@ -3,13 +3,13 @@ from flask_jwt_extended import create_access_token
 from models.user import User 
 from models import db
 
-auth_bp =   Blueprint('auth', __name__)
+auth_bp =   Blueprint('auth_bp', __name__)
 
 @auth_bp.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
-    user = User(username=data['username'])
-    user.set_password(data['password'])
+    user = User(username=username)
+    user.set_password(password)
 
     if not username or not password:
         return jsonify({'error': 'Username and password required'}), 400

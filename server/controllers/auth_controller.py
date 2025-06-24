@@ -16,11 +16,11 @@ def register():
 
     existing_user = User.query.filter_by(username=username).first()
     if existing_user:
-        return jsonify({'error': 'Username and password required'}), 400
+        return jsonify({'error': 'Username already exist'}), 400
     
     user = User(username=username)
     user.set_password(password)
-    
+
     db.session.add(user)
     db.session.commit()
     return jsonify({message: "User created", 'username': user.username}), 201

@@ -22,7 +22,7 @@ def register():
     user.set_password(password)
     db.session.add(user)
     db.session.commit()
-    return jsonify({message="User created", 'username': user.username}), 201
+    return jsonify({message: "User created", 'username': user.username}), 201
 
 @auth_bp.route('/login', methods=['POST'])
 def login():

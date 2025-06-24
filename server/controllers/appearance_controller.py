@@ -10,9 +10,9 @@ appearance_bp = Blueprint('appearance_bp', __name__)
 def create_appearance():
     data = request.get_json()
 
-        rating= data('rating')
-        guest_id=data('guest_id')
-        episode_id=data('episode_id')
+    rating= data('rating')
+    guest_id=data('guest_id')
+    episode_id=data('episode_id')
     if rating is None or guest_id is None or episode_id is None:
         return jsonify({"error": "rating, guest_id, and episode_id are required"}), 400
 
@@ -22,12 +22,12 @@ def create_appearance():
         db.session.commit()
 
 
-    return jsonify({
-        'id': appearance.id,
-        'rating': appearance.rating,
-        'guest_id': appearance.guest_id,
-        'episode_id': appearance.episode_id
-    }), 201
-except Exception as e:
-    db.session.rollback()
-    return jsonify({"error": str(e)}), 500
+        return jsonify({
+            'id': appearance.id,
+            'rating': appearance.rating,
+            'guest_id': appearance.guest_id,
+            'episode_id': appearance.episode_id
+        }), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500

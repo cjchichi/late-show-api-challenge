@@ -1,8 +1,7 @@
-# from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import db
-# db = SQLAlchemy()
 
+    
 class User(db.Model):
     __tablename__ = 'users'
 
@@ -18,3 +17,4 @@ class User(db.Model):
 
     def __repr__(self):
         return f"<User {self.username}>"
+

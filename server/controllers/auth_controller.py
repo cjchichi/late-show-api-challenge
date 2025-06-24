@@ -8,8 +8,8 @@ auth_bp =   Blueprint('auth_bp', __name__)
 @auth_bp.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
-    user = User(username=username)
-    user.set_password(password)
+    username = data.get('username')
+    password = data.get('password')
 
     if not username or not password:
         return jsonify({'error': 'Username and password required'}), 400
@@ -20,6 +20,7 @@ def register():
     
     user = User(username=username)
     user.set_password(password)
+    
     db.session.add(user)
     db.session.commit()
     return jsonify({message: "User created", 'username': user.username}), 201
